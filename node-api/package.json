@@ -1,0 +1,13 @@
+{
+  "name": "gallery-api",
+  "description": "REST Gallery API",
+  "version": "0.0.1",
+  "private": true,
+  "main": "galleryapi.js",
+  "scripts": {
+    "start": "node galleryapi.js"
+  },
+  "dependencies": {
+    
+  }
+}
