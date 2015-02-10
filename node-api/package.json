@@ -8,6 +8,6 @@
     "start": "node galleryapi.js"
   },
   "dependencies": {
-    
+    "statsd-client": "0.0.17"
   }
 }

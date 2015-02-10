@@ -1,15 +1,21 @@
 var service = require('./serviceDolar.js'),
-	dolar = {};
-
+	SDC = require('statsd-client'),
+    sdc = new SDC({host: 'localhost', port: 8125, debug: true}),
+	dolar = {},
+	timer;
 
 var callback = function(value) {
 	dolar = value;
-	console.log(new Date(), dolar);
+	timer = new Date();
+	
+	sdc.gauge('dolar.gauge', dolar);
+	sdc.timing('dolar.request.time', timer);
 };
 
-setInterval(function(){ 
+setInterval(function() { 
+	timeStart = new Date();
 	service.getDolarPrice(callback); 
-	
+
 }, 10000);
 
 
